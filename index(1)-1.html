@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>روز مادر مبارک</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;display:grid;place-items:center;background:linear-gradient(135deg,#fff0f5,#fce1eb 55%,#fff7f2);font-family:Tahoma,Arial,sans-serif;color:#813d59;padding:22px}
+.wrap{text-align:center;width:min(100%,440px)}
+h1{font-size:26px;margin:0 0 8px;color:#a84970}
+.hint{font-size:14px;margin:0 0 24px;color:#9a657a}
+.scene{height:340px;display:flex;align-items:center;justify-content:center;perspective:1000px}
+.envelope{position:relative;width:min(88vw,350px);height:225px;cursor:pointer;filter:drop-shadow(0 15px 18px #b56b8833);outline:none}
+.back{position:absolute;inset:0;background:#eaa8c1;border-radius:8px}
+.letter{position:absolute;left:7%;width:86%;height:190px;bottom:10px;background:#fffdfb;border-radius:8px;padding:24px 18px 14px;text-align:center;transition:transform 1s ease,bottom 1s ease;box-shadow:0 2px 8px #8b4a6420;z-index:2}
+.letter .flower{font-size:25px;margin-bottom:8px}
+.letter h2{font-size:21px;margin:0 0 12px;color:#b34f78}
+.letter p{font-size:15px;line-height:2;margin:0;color:#70465a}
+.front{position:absolute;inset:0;background:#f3bfd1;clip-path:polygon(0 0,50% 55%,100% 0,100% 100%,0 100%);border-radius:0 0 8px 8px;z-index:3}
+.flap{position:absolute;inset:0;background:#df91af;clip-path:polygon(0 0,100% 0,50% 62%);transform-origin:top;transition:transform .75s ease;z-index:4;border-radius:8px 8px 0 0}
+.seal{position:absolute;z-index:5;left:50%;top:48%;transform:translate(-50%,-50%);font-size:34px;transition:opacity .3s}
+.envelope.open .flap{transform:rotateX(180deg);z-index:1}
+.envelope.open .letter{transform:translateY(-125px);bottom:0;z-index:2}
+.envelope.open .seal{opacity:0}
+.front-heart{position:absolute;z-index:4;bottom:22px;left:50%;transform:translateX(-50%);font-size:24px}
+button{border:0;border-radius:24px;background:#b84f79;color:white;padding:12px 25px;font-size:15px;font-family:inherit;cursor:pointer;box-shadow:0 5px 14px #b84f7930}
+button:focus-visible,.envelope:focus-visible{outline:3px solid #8f3159;outline-offset:5px}
+.note{font-size:12px;color:#a16e82;margin-top:16px}
+@media(max-height:650px){.scene{height:290px}.envelope{transform:scale(.88)}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<h1>برای بهترین مامان دنیا 💗</h1>
+<p class="hint">روی پاکت بزن تا نامه‌ی داخلش باز بشه</p>
+<div class="scene">
+  <div class="envelope" id="env" role="button" tabindex="0" aria-label="باز کردن پاکت">
+    <div class="back"></div>
+    <article class="letter">
+      <div class="flower">🌷💗🌷</div>
+      <h2>روزت مبارک مامان!</h2>
+      <p>ممنون برای همه‌ی عشق و مهربونیت.<br>دوستت دارم، بیشتر از همه‌ی گل‌های دنیا. 💕</p>
+    </article>
+    <div class="front"></div>
+    <div class="flap"></div>
+    <div class="seal">💌</div>
+    <div class="front-heart">♡</div>
+  </div>
+</div>
+<button id="toggle" type="button">باز کردن نامه 💌</button>
+<p class="note">با عشق، برای قشنگ‌ترین مامان دنیا</p>
+</main>
+<script>
+const env=document.getElementById('env');
+const btn=document.getElementById('toggle');
+function toggle(){
+  const opened=env.classList.toggle('open');
+  btn.textContent=opened?'بستن نامه 💗':'باز کردن نامه 💌';
+}
+env.addEventListener('click',toggle);
+env.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();toggle();}});
+btn.addEventListener('click',toggle);
+</script>
+</body>
+</html>
